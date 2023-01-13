@@ -228,11 +228,14 @@ int DaemonManager::main(const std::vector<std::string> &)
     GlobalThreadPool::initialize(config().getUInt("max_thread_pool_size", 100));
 
     global_context->initCnchConfig(config());
-    Catalog::CatalogConfig catalog_conf(config());
-    global_context->initCatalog(catalog_conf, config().getString("catalog.name_space", "default"));
+
+    auto cnch_config = global_context->getCnchConfigRef();
+    Catalog::CatalogConfig catalog_conf(cnch_config);
+    global_context->initCatalog(catalog_conf,
+        cnch_config.getString("catalog.name_space", "default"));
     global_context->initServiceDiscoveryClient();
-    global_context->initCnchServerClientPool(config().getString("service_discovery.server.psm", "data.cnch.server"));
-    global_context->initTSOClientPool(config().getString("service_discovery.tso.psm", "data.cnch.tso"));
+    global_context->initCnchServerClientPool(cnch_config.getString("service_discovery.server.psm", "data.cnch.server"));
+    global_context->initTSOClientPool(cnch_config.getString("service_discovery.tso.psm", "data.cnch.tso"));
 
     global_context->setCnchTopologyMaster();
     global_context->setSetting("cnch_data_retention_time_in_sec", config().getUInt64("cnch_data_retention_time_in_sec", 3*24*60*60));
