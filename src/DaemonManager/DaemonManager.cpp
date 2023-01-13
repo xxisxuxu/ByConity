@@ -229,7 +229,7 @@ int DaemonManager::main(const std::vector<std::string> &)
 
     global_context->initCnchConfig(config());
 
-    auto cnch_config = global_context->getCnchConfigRef();
+    const Poco::Util::AbstractConfiguration & cnch_config = global_context->getCnchConfigRef();
     Catalog::CatalogConfig catalog_conf(cnch_config);
     global_context->initCatalog(catalog_conf,
         cnch_config.getString("catalog.name_space", "default"));
