@@ -8,13 +8,13 @@
 <yandex>
     <logger>
         <level>trace</level>
-        <log>/data01/minh.dao/CHwp/CHlog/byconity/log/clickhouse-server/daemon-manager.log</log>
-        <errorlog>/data01/minh.dao/CHwp/CHlog/byconity/log/clickhouse-server/daemon-manager.err.log</errorlog>
+        <log>/root/app/logs/byconity-dm/dm.log</log>
+        <errorlog>/root/app/logs/byconity-dm/dm.log</errorlog>
         <size>1000M</size>
         <count>10</count>
     </logger>
 
-    <path>/data01/minh.dao/CHwp/CHdata/cnch-ce/bafgara/</path>
+    <path>/root/app/logs/byconity-dm/</path>
     <cnch_data_retention_time_in_sec>5</cnch_data_retention_time_in_sec>
     <background_schedule_pool_size>6</background_schedule_pool_size>
 
@@ -63,12 +63,12 @@
 
     <storage_configuration>
         <disks>
-            <default></default>
+            <default/>
             <server_local_disk1>
-                <path>/data01/minh.dao/CHwp/CHdata/byconity/server/data/0/</path>
+                <path>/root/app/data/byconity_server/server_local_disk/data/0/</path>
             </server_local_disk1>
             <server_hdfs_disk0>
-                <path>/user/minh.dao/clickhouse/byconity/</path>
+                <path>/user/clickhouse/</path>
                 <type>bytehdfs</type>
             </server_hdfs_disk0>
         </disks>

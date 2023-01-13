@@ -8,8 +8,8 @@
 <yandex>
     <logger>
         <level>trace</level>
-        <log>/data01/minh.dao/CHwp/CHlog/byconity/log/clickhouse-server/clickhouse-worker-write.log</log>
-        <errorlog>/data01/minh.dao/CHwp/CHlog/byconity/log/clickhouse-server/clickhouse-worker-write.err.log</errorlog>
+        <log>/root/app/logs/byconity-worker-write/worker-write.log</log>
+        <errorlog>/root/app/logs/byconity-worker-write/worker.log</errorlog>
         <size>1000M</size>
         <count>10</count>
     </logger>
@@ -162,11 +162,11 @@
     <compiled_expression_cache_size>134217728</compiled_expression_cache_size>
 
     <!-- Path to data directory, with trailing slash. -->
-    <path>/data01/minh.dao/CHwp/CHdata/byconity/var/lib/worker-write/</path>
+    <path>/root/app/data/byconity_worker-write/var/lib/worker-write/</path>
 
     <!-- Path to temporary data for processing hard queries. -->
-    <tmp_path>/data01/minh.dao/CHwp/CHdata/byconity/var/lib/worker-write/tmp/</tmp_path>
-    <users_config>/data01/minh.dao/CHwp/CHconfig/byconity/users.xml</users_config>
+    <tmp_path>/root/app/data/byconity_worker-write/var/lib/worker-write/tmp/</tmp_path>
+    <users_config>/root/app/config/users.xml</users_config>
 
 
     <!-- Policy from the <storage_configuration> for the temporary files.
@@ -181,7 +181,7 @@
     <!-- <tmp_policy>tmp</tmp_policy> -->
 
     <!-- Directory with user provided files that are accessible by 'file' table function. -->
-    <user_files_path>/data01/minh.dao/CHwp/CHdata/byconity/var/lib/worker-write/user_files/</user_files_path>
+    <user_files_path>/root/app/data/byconity_worker-write/var/lib/worker-write/user_files/</user_files_path>
 
     <!-- LDAP server definitions. -->
     <ldap_servers>
@@ -216,7 +216,7 @@
         </users_xml>
         <local_directory>
             <!-- Path to folder where users created by SQL commands are stored. -->
-            <path>/data01/minh.dao/CHwp/CHdata/byconity/var/lib/worker-write/access/</path>
+            <path>/root/app/data/byconity_worker-write/var/lib/worker-write/access/</path>
         </local_directory>
 
         <!-- To add an LDAP server as a remote user directory of users that are not defined locally, define a single 'ldap' section
@@ -384,16 +384,16 @@
     -->
     <dictionaries_config>*_dictionary.xml</dictionaries_config>
 
-    <format_schema_path>/data01/minh.dao/CHwp/CHdata/byconity/var/lib/worker/format_schemas/</format_schema_path>
+    <format_schema_path>/data01/minh.dao/CHwp/CHdata/byconity/var/lib/worker-write/format_schemas/</format_schema_path>
 
     <storage_configuration>
         <disks>
             <default/>
             <server_local_disk1>
-                <path>/data01/minh.dao/CHwp/CHdata/byconity/server/data/0/</path>
+                <path>/root/app/data/byconity_server/server_local_disk/data/0/</path>
             </server_local_disk1>
             <server_hdfs_disk0>
-                <path>/user/minh.dao/clickhouse/byconity/</path>
+                <path>/user/clickhouse/</path>
                 <type>bytehdfs</type>
             </server_hdfs_disk0>
         </disks>
