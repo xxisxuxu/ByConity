@@ -68,7 +68,7 @@ fi
 
 if [ "$1" = "tso" ]; then
     run_tso
-elif [$1 = "server"]; then
+elif [ "$1" = "server" ]; then
     run_server $2
 else
     echo "valid argument are tso, server, read_worker, write_worker, dm"
