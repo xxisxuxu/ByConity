@@ -154,7 +154,7 @@
     <catalog_service>
         <type>fdb</type>
         <fdb>
-            <cluster_file>/data01/minh.dao/foundationdb/fdb_config/fdb.cluster</cluster_file>
+            <cluster_file>/root/app/config/fdb.cluster</cluster_file>
         </fdb>
     </catalog_service>
 
