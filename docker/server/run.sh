@@ -66,6 +66,8 @@ if [ ! -f "config/fdb.cluster" ]; then
     exit 0
 fi
 
+mkdir -p data/byconity_server/server_local_disk/data/0/
+
 if [ "$1" = "tso" ]; then
     run_tso
 elif [ "$1" = "server" ]; then
