@@ -61,6 +61,11 @@ function run_dm() {
     --name byconity-tso minhthucdao1/byconity-server daemon-manager --config-file /root/app/config/dm.xml 
 }
 
+if [ ! -f "config/fdb.cluster" ]; then
+    echo "file config/fdb.cluster does not exist."
+    exit 0
+fi
+
 if [ "$1" = "tso" ]; then
     run_tso
 elif [$1 = "server"]; then

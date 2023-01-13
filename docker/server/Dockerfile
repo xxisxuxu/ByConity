@@ -14,14 +14,3 @@ COPY --chown=clickhouse:clickhouse libfdb_c.so /root/app/lib
 RUN chmod +x /root/app/run.sh
 
 ENTRYPOINT ["/root/app/run.sh"]
-
-# run
-#      envsubst < /mnt/cnch-tso-config/cnch-tso.xml > /opt/tiger/toutiao/app/etc/cnch-tso/cnch-tso.xml
-#      mkdir -p /opt/tiger/chadc/ && cp /opt/tiger/toutiao/app/etc/cnch-tso/netsegment /opt/tiger/chadc/
-#      exec /opt/tiger/toutiao/app/usr/bin/tso_server --config-file /opt/tiger/toutiao/app/etc/cnch-tso/cnch-tso.xml
-
-
-
-# docker run --env --network host -p 9010:9010
-# docker run --env --network host --expose 9010 -v /host_config_foler: 
-# docker  run  -v `pwd`:`pwd` -w `pwd` -i -t  ubuntu pwd
