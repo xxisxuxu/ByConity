@@ -20,7 +20,7 @@ function run_server() {
     --expose 18687 \
     --expose 18688 \
     --network host \
-    --name byconity-tso minhthucdao1/byconity-server server -C --config-file /root/app/config/server$1.xml 
+    --name byconity-server$1 minhthucdao1/byconity-server server -C --config-file /root/app/config/server$1.xml 
 }
 
 function run_read_worker() {
@@ -34,7 +34,7 @@ function run_read_worker() {
     --expose 18699 \
     --expose 18700 \
     --network host \
-    --name byconity-tso minhthucdao1/byconity-server server -C --config-file /root/app/config/read_worker$1.xml 
+    --name byconity-read-worker$1 minhthucdao1/byconity-server server -C --config-file /root/app/config/read_worker$1.xml 
 }
 
 function run_write_worker() {
@@ -48,7 +48,7 @@ function run_write_worker() {
     --expose 18693 \
     --expose 18694 \
     --network host \
-    --name byconity-tso minhthucdao1/byconity-server server -C --config-file /root/app/config/write_worker$1.xml 
+    --name byconity-write-worker$1 minhthucdao1/byconity-server server -C --config-file /root/app/config/write_worker$1.xml 
 }
 
 function run_dm() {
@@ -58,7 +58,7 @@ function run_dm() {
     --mount type=bind,source="$(pwd)"/data,target=/root/app/data \
     --expose 18965 \
     --network host \
-    --name byconity-tso minhthucdao1/byconity-server daemon-manager --config-file /root/app/config/dm.xml 
+    --name byconity-dm minhthucdao1/byconity-server daemon-manager --config-file /root/app/config/dm.xml 
 }
 
 if [ ! -f "config/fdb.cluster" ]; then
